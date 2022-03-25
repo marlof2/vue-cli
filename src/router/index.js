@@ -10,6 +10,16 @@ const routes = [
     name: "home",
     component: HomeView,
   },
+  {
+    path: "/cidades",
+    name: "cidades",
+    component: () => import("@/modules/cidades"),
+  },
+  {
+    path: "/estados",
+    name: "estados",
+    component: () => import("@/modules/estados"),
+  },
 ];
 
 const router = new VueRouter({
