@@ -1,28 +1,32 @@
 <template>
   <v-app>
-    <v-app-bar app>
-      <v-app-bar-nav-icon />
-      <v-spacer></v-spacer>
-      <v-avatar class="d-flex text-right mx-auto" size="42">
-       <v-icon size="48">
-        mdi-account-circle
-      </v-icon>
-      </v-avatar>
-      <div class="d-flex align-center"></div>
-    </v-app-bar>
-
+    <AppBar />
     <v-main>
-      <router-view />
+      <TopBar />
+      <v-container fluid>
+        <v-row>
+          <v-col cols="3">
+          <SideBar />
+          </v-col>
+          <v-col cols="7">
+          <router-view />
+          </v-col>
+        </v-row>
+      </v-container>
     </v-main>
   </v-app>
 </template>
 
 <script>
+import AppBar from "./components/Template/AppBar";
+import SideBar from "./components/Template/SideBar";
+import TopBar from "./components/Template/TopBar";
 export default {
   name: "App",
-
-  data: () => ({
-    //
-  }),
+  components: {
+    AppBar,
+    SideBar,
+    TopBar,
+  },
 };
 </script>

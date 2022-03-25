@@ -1,6 +1,6 @@
 <template>
   <v-fragment>
-    <v-app-bar clipped-right flat height="60" >
+    <v-app-bar  flat height="60" >
       <v-responsive>
         <v-row>
           <v-col v-for="n in 4" :key="n">
@@ -16,7 +16,7 @@
         </v-row>
       </v-responsive>
     </v-app-bar>
-
+<!-- 
     <v-navigation-drawer v-model="drawer" width="300">
       <v-navigation-drawer
         v-model="drawer"
@@ -48,7 +48,7 @@
           </v-list-item-content>
         </v-list-item>
       </v-list>
-    </v-navigation-drawer>
+    </v-navigation-drawer> -->
   </v-fragment>
 </template>
 
