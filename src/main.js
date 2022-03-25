@@ -6,6 +6,9 @@ import vuetify from "./plugins/vuetify";
 
 Vue.config.productionTip = false;
 
+// Vue.use(Vuelidate);
+// Vue.use(VueIziToast);
+
 new Vue({
   router,
   store,
