@@ -17,6 +17,8 @@
       <v-avatar
         v-for="n in 6"
         :key="n"
+        :class="{ active: activeIcon(n) }"
+        @click="activeIcon(n)"
         class="d-block text-center mx-auto mb-9"
         color="grey lighten-1"
         size="28"
@@ -48,7 +50,21 @@
 </template>
 
 <script>
-export default {};
+export default {
+  data() {
+    return {
+      isActive: -1,
+      isActiveStyle: {
+        marginLeft: "30px",
+      },
+      drawer: true,
+    };
+  },
+  methods: {
+    activeIcon(index) {
+      console.log(index)
+      this.isActive = index;
+    },
+  },
+};
 </script>
-
-<style></style>
