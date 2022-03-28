@@ -6,10 +6,10 @@
       <v-container fluid>
         <v-row>
           <v-col cols="3">
-          <SideBar />
+            <SideBar />
           </v-col>
           <v-col cols="7">
-          <router-view />
+            <router-view />
           </v-col>
         </v-row>
       </v-container>
@@ -19,7 +19,7 @@
 
 <script>
 import AppBar from "./components/Template/AppBar";
-import SideBar from "./components/Template/SideBar";
+import SideBar from "./components/Template/Sidebar";
 import TopBar from "./components/Template/TopBar";
 export default {
   name: "App",
