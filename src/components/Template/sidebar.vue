@@ -1,5 +1,10 @@
 <template>
-  <v-navigation-drawer v-model="drawer" width="300" class="mt-15" absolute>
+  <v-navigation-drawer
+    v-model="drawer"
+    width="300"
+    absolute
+    style="margin-top: 45px"
+  >
     <v-navigation-drawer
       v-model="drawer"
       absolute
@@ -9,13 +14,13 @@
       <v-avatar
         class="d-block text-center mx-auto mt-4"
         color="grey darken-1"
-        size="36"
+        size="28"
       ></v-avatar>
 
       <v-divider class="mx-3 my-5"></v-divider>
 
       <v-avatar
-        v-for="n in 6"
+        v-for="n in 4"
         :key="n"
         class="d-block text-center mx-auto mb-9"
         color="grey lighten-1"
