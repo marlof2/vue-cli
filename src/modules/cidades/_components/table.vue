@@ -1,66 +1,70 @@
 <template>
   <div>
-  <div v-if="dataItem.length">
-    <v-row>
-      <v-col cols="12" sm="12" md="12">
-        <v-simple-table style="padding-top: 0">
-          <template v-slot:default>
-            <thead>
-              <tr></tr>
-            </thead>
-            <tbody>
-              <tr v-for="item in dataItem" :key="item.cd_tipo_processo">
-                <td style="width: 15%">
-                  <div style="display: inline-flex">
-                    <span
-                      @click="handlerEdit(item.cd_tipo_processo)"
-                      class="icon-pencil icon-custom container-items-center"
-                    ></span>
+    <div v-if="dataItem.length">
+      <v-row>
+        <v-col cols="12" sm="12" md="12">
+          <v-simple-table style="padding-top: 0">
+            <template v-slot:default>
+              <thead>
+                <tr></tr>
+              </thead>
+              <tbody>
+                <tr v-for="item in dataItem" :key="item.cd_tipo_processo">
+                  <td style="width: 15%">
+                    <div style="display: inline-flex">
+                      <span
+                        @click="handlerEdit(item.cd_tipo_processo)"
+                        class="icon-pencil icon-custom container-items-center"
+                      ></span>
 
-                    <span
-                      @click.stop="handlerShow(item.cd_tipo_processo)"
-                      style="margin-right: 5px"
-                      class="icon-eye icon-custom container-items-center"
-                    ></span>
+                      <span
+                        @click.stop="handlerShow(item.cd_tipo_processo)"
+                        style="margin-right: 5px"
+                        class="icon-eye icon-custom container-items-center"
+                      ></span>
 
-                    <v-switch
-                      v-model="itemInativo[item.cd_tipo_processo]"
-                      color="#0894C0"
-                      @change="handlerRemove(item.cd_tipo_processo)"
-                    ></v-switch>
-                  </div>
-                </td>
+                      <v-switch
+                        v-model="itemInativo[item.cd_tipo_processo]"
+                        color="#0894C0"
+                        @change="handlerRemove(item.cd_tipo_processo)"
+                      ></v-switch>
+                    </div>
+                  </td>
 
-                <td>{{ item.nm_tipo_processo }}</td>
-              </tr>
-            </tbody>
-          </template>
-        </v-simple-table>
+                  <td>{{ item.nm_tipo_processo }}</td>
+                </tr>
+              </tbody>
+            </template>
+          </v-simple-table>
 
-        <show-data
-          v-if="showDataProcess"
-          v-model="showDataProcess"
-          :cd_tipo_processo="cd_tipo_processo"
-        />
-        <remove-data
-          v-model="removeDataProcess"
-          v-if="removeDataProcess"
-          :cd_tipo_processo="cd_tipo_processo"
-          :restore="itemInativo[cd_tipo_processo]"
-        />
+          <show-data
+            v-if="showDataProcess"
+            v-model="showDataProcess"
+            :cd_tipo_processo="cd_tipo_processo"
+          />
+          <remove-data
+            v-model="removeDataProcess"
+            v-if="removeDataProcess"
+            :cd_tipo_processo="cd_tipo_processo"
+            :restore="itemInativo[cd_tipo_processo]"
+          />
+        </v-col>
+      </v-row>
+      <v-row>
+        <v-col>
+          <v-pagination
+            v-model="currentPage"
+            :length="lastPage"
+            class="pagination"
+          ></v-pagination>
+        </v-col>
+      </v-row>
+    </div>
+    <v-row v-else>
+      <v-col class="information">
+        <span>Sem Registros</span>
       </v-col>
     </v-row>
-    <v-row>
-      <v-col>
-        <v-pagination v-model="currentPage" :length="lastPage" class="pagination"></v-pagination>
-      </v-col>
-    </v-row>
-  </div>
-  <v-row v-else>
-    <v-col class="information">
-      <span>Sem Registros</span>
-    </v-col>
-  </v-row>
   </div>
 </template>
 
@@ -101,7 +105,7 @@ export default {
           dataItem.deleted_at == null;
       });
     },
-   
+
     handlerRemove(cd_tipo_processo) {
       this.cd_tipo_processo = cd_tipo_processo;
       this.removeDataProcess = true;
@@ -111,9 +115,9 @@ export default {
       this.showDataProcess = true;
     },
     async handlerEdit(cd_tipo_processo) {
-      
       this.$router.push({
-        name: `tipo_processo.edit`, params: { id: cd_tipo_processo },
+        name: `tipo_processo.edit`,
+        params: { id: cd_tipo_processo },
       });
     },
   },
@@ -166,8 +170,8 @@ export default {
     opacity: 0.3;
   }
 }
- ::v-deep .information {
-    margin-bottom: 0.5rem ;
+::v-deep .information {
+  margin-bottom: 0.5rem;
   background: #e9edf4;
   height: 56px;
   box-sizing: border-box;

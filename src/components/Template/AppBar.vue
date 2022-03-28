@@ -1,7 +1,7 @@
 <template>
   <v-app-bar dense app color="green">
-    <v-icon size="40" style="margin-left: -9px">mdi-dots-grid</v-icon>
-    <v-toolbar-title style="font-size: 12px"
+    <v-icon size="40" style="margin-left: -7px">mdi-dots-grid</v-icon>
+    <v-toolbar-title style="font-size: 12px; margin-left: 10px"
       >PREFEITURA DE
       <div style="font-size: 17px">CAMAÇARI</div></v-toolbar-title
     >
@@ -18,11 +18,7 @@
 // import { mdiDotsGrid } from "@mdi/js";
 export default {
   data: () => {
-    return {
-      icons: {
-        mdiDotsGrid,
-      },
-    };
+    return {};
   },
 };
 </script>

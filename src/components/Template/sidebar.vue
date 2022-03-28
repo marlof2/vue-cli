@@ -1,7 +1,7 @@
 <template>
   <v-navigation-drawer
     v-model="drawer"
-    width="300"
+    width="250"
     absolute
     style="margin-top: 45px"
   >
@@ -11,12 +11,6 @@
       color="grey lighten-3"
       mini-variant
     >
-      <v-avatar
-        class="d-block text-center mx-auto mt-4"
-        color="grey darken-1"
-        size="28"
-      ></v-avatar>
-
       <v-divider class="mx-3 my-5"></v-divider>
 
       <v-avatar
