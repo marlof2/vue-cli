@@ -1,7 +1,7 @@
 <template>
   <v-navigation-drawer
     v-model="drawer"
-    width="250"
+    :width="drawerSecondary ? 250 : 56"
     absolute
     style="margin-top: 45px"
   >
@@ -29,7 +29,7 @@
       ></v-avatar>
     </v-navigation-drawer>
 
-    <v-list class="pl-14" shaped>
+    <v-list class="pl-14" shaped v-if="drawerSecondary">
       <v-list-item link>
         <v-list-item-content>
           <router-link :to="{ name: 'cidades' }">
@@ -55,15 +55,24 @@
 
 <script>
 export default {
+  async mounted(){
+     this.$root.$on('toggleDrawerSecondary', () => {
+      this.toggleDrawerSecondary()
+    })
+  },
   data() {
     return {
       isActive: true,
       drawer: true,
+      drawerSecondary: true,
     };
   },
   methods: {
     toggleActive() {
       this.isActive = !this.isActive;
+    },
+    toggleDrawerSecondary() {
+      this.drawerSecondary = !this.drawerSecondary;
     },
   },
 };
