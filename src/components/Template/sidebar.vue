@@ -8,17 +8,16 @@
     >
       <v-avatar
         class="d-block text-center mx-auto mt-4"
-        color="grey darken-1"
+        :color="isActive ? 'blue' : `grey darken-1`"
         size="36"
-      ></v-avatar>
-
+        @click="toggleActive"
+      />
+      <div :class="{'active-icon': isActive}" class="inactive-icon"/>
       <v-divider class="mx-3 my-5"></v-divider>
 
       <v-avatar
-        v-for="n in 6"
+        v-for="n in 4"
         :key="n"
-        :class="{ active: activeIcon(n) }"
-        @click="activeIcon(n)"
         class="d-block text-center mx-auto mb-9"
         color="grey lighten-1"
         size="28"
@@ -53,18 +52,31 @@
 export default {
   data() {
     return {
-      isActive: -1,
-      isActiveStyle: {
-        marginLeft: "30px",
-      },
+      isActive: true,
       drawer: true,
     };
   },
   methods: {
-    activeIcon(index) {
-      console.log(index)
-      this.isActive = index;
-    },
+    toggleActive() {
+      this.isActive = !this.isActive;
+    }
   },
 };
 </script>
+
+<style>
+.v-avatar{
+  margin-bottom: 5px;
+}
+
+.active-icon {
+  width: 80%;
+  height: .5px;
+  margin: 5px 5px 0;
+  background-color: blue;
+}
+
+.inactive-icon {
+  height: .5px;
+}
+</style>
