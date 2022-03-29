@@ -23,11 +23,11 @@
             size="25"
             >mdi-account-circle</v-icon
           >
-          <div :class="{ 'active-icon': isActive }" class="inactive-icon" />
           <!-- <v-divider class="mx-3 my-5"></v-divider> -->
         </template>
         <span>Perfil</span>
       </v-tooltip>
+      <div :class="{ 'active-icon': isActive, 'inactive-icon': !isActive }" />
       <v-tooltip right>
         <template v-slot:activator="{ on, attrs }">
           <v-icon
@@ -39,11 +39,11 @@
             size="25"
             >mdi-medical-bag</v-icon
           >
-          <div :class="{ 'active-icon': isActive }" class="inactive-icon" />
           <!-- <v-divider class="mx-3 my-5"></v-divider> -->
         </template>
         <span>Medicos</span>
       </v-tooltip>
+      <div :class="{ 'active-icon': isActive, 'inactive-icon': !isActive }" />
     </v-navigation-drawer>
 
     <v-list class="pl-14" shaped v-if="drawerSecondary">
