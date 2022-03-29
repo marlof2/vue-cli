@@ -12,7 +12,7 @@
           <div>
             <v-btn elevation="3" rounded small> Novo Médico </v-btn>
             <v-btn class="ml-3" elevation="3" rounded small>
-              Novo pasciente
+              Novo paciente
             </v-btn>
           </div>
         </v-col>
