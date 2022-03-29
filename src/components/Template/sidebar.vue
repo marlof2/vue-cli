@@ -11,6 +11,13 @@
       color="grey lighten-3"
       mini-variant
     >
+      <v-avatar
+        class="d-block text-center mx-auto mt-4"
+        :color="isActive ? 'blue' : `grey darken-1`"
+        size="36"
+        @click="toggleActive"
+      ></v-avatar>
+      <div :class="{ 'active-icon': isActive }" class="inactive-icon" />
       <v-divider class="mx-3 my-5"></v-divider>
 
       <v-avatar
@@ -47,7 +54,34 @@
 </template>
 
 <script>
-export default {};
+export default {
+  data() {
+    return {
+      isActive: true,
+      drawer: true,
+    };
+  },
+  methods: {
+    toggleActive() {
+      this.isActive = !this.isActive;
+    },
+  },
+};
 </script>
 
-<style></style>
+<style>
+.v-avatar {
+  margin-bottom: 5px;
+}
+
+.active-icon {
+  width: 80%;
+  height: 0.5px;
+  margin: 5px 5px 0;
+  background-color: blue;
+}
+
+.inactive-icon {
+  height: 0.5px;
+}
+</style>
