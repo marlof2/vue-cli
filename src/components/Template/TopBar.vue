@@ -1,5 +1,5 @@
 <template>
-  <v-app-bar flat height="45" style="margin-left: -2px">
+  <v-app-bar color="#eeeeee" flat height="45" style="margin-left: -2px">
     <v-avatar
       class="d-block mx-auto"
       color="grey darken-1"

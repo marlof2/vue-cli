@@ -19,7 +19,7 @@
 
 <script>
 import AppBar from "./components/Template/AppBar";
-import SideBar from "./components/Template/SideBar";
+import SideBar from "./components/Template/Sidebar";
 import TopBar from "./components/Template/TopBar";
 export default {
   name: "App",
