@@ -3,10 +3,12 @@
     <v-icon color="white" size="40" style="margin-left: -7px"
       >mdi-dots-grid</v-icon
     >
-    <v-toolbar-title class="mt-1 text-color-white font"
-      >PREFEITURA DE
-      <div style="font-size: 17px">CAMAÇARI</div></v-toolbar-title
-    >
+    <router-link style="textDecoration: none" :to="{ name: 'home' }">
+      <v-toolbar-title class="mt-1 text-color-white font"
+        >PREFEITURA DE
+        <div style="font-size: 17px">CAMAÇARI</div></v-toolbar-title
+      >
+    </router-link>
     <v-spacer></v-spacer>
 
     <v-menu bottom left>
