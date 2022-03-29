@@ -1,7 +1,8 @@
 <template>
   <v-navigation-drawer
+    color="#eeeeee"
     v-model="drawer"
-    :width="drawerSecondary ? 250 : 56"
+    :width="drawerSecondary ? 300 : 56"
     absolute
     style="margin-top: 45px"
   >
@@ -11,26 +12,43 @@
       color="grey lighten-3"
       mini-variant
     >
-      <v-avatar
-        class="d-block text-center mx-auto mt-4"
-        :color="isActive ? 'blue' : `grey darken-1`"
-        size="36"
-        @click="toggleActive"
-      ></v-avatar>
-      <div :class="{ 'active-icon': isActive }" class="inactive-icon" />
-      <v-divider class="mx-3 my-5"></v-divider>
-
-      <v-avatar
-        v-for="n in 4"
-        :key="n"
-        class="d-block text-center mx-auto mb-9"
-        color="grey lighten-1"
-        size="28"
-      ></v-avatar>
+      <v-tooltip right>
+        <template v-slot:activator="{ on, attrs }">
+          <v-icon
+            @click="toggleActive"
+            :color="isActive ? 'blue' : `grey darken-1`"
+            v-on="on"
+            v-bind="attrs"
+            class="d-block text-center mx-auto mt-4"
+            size="25"
+            >mdi-account-circle</v-icon
+          >
+          <div :class="{ 'active-icon': isActive }" class="inactive-icon" />
+          <!-- <v-divider class="mx-3 my-5"></v-divider> -->
+        </template>
+        <span>Perfil</span>
+      </v-tooltip>
+      <v-tooltip right>
+        <template v-slot:activator="{ on, attrs }">
+          <v-icon
+            @click="toggleActive"
+            :color="isActive ? 'blue' : `grey darken-1`"
+            v-on="on"
+            v-bind="attrs"
+            class="d-block text-center mx-auto mt-4"
+            size="25"
+            >mdi-medical-bag</v-icon
+          >
+          <div :class="{ 'active-icon': isActive }" class="inactive-icon" />
+          <!-- <v-divider class="mx-3 my-5"></v-divider> -->
+        </template>
+        <span>Medicos</span>
+      </v-tooltip>
     </v-navigation-drawer>
 
     <v-list class="pl-14" shaped v-if="drawerSecondary">
       <v-list-item link>
+        <v-icon>mdi-chevron-right </v-icon>
         <v-list-item-content>
           <router-link :to="{ name: 'cidades' }">
             <v-list-item-title>Cidades</v-list-item-title>
@@ -38,15 +56,11 @@
         </v-list-item-content>
       </v-list-item>
       <v-list-item link>
+        <v-icon>mdi-chevron-right </v-icon>
         <v-list-item-content>
           <router-link :to="{ name: 'estados' }">
             <v-list-item-title>Estado</v-list-item-title>
           </router-link>
-        </v-list-item-content>
-      </v-list-item>
-      <v-list-item v-for="n in 6" :key="n" link>
-        <v-list-item-content>
-          <v-list-item-title>Item {{ n + 2 }}</v-list-item-title>
         </v-list-item-content>
       </v-list-item>
     </v-list>
@@ -55,10 +69,10 @@
 
 <script>
 export default {
-  async mounted(){
-     this.$root.$on('toggleDrawerSecondary', () => {
-      this.toggleDrawerSecondary()
-    })
+  async mounted() {
+    this.$root.$on("toggleDrawerSecondary", () => {
+      this.toggleDrawerSecondary();
+    });
   },
   data() {
     return {

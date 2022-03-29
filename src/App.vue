@@ -19,8 +19,8 @@
 
 <script>
 import AppBar from "./components/Template/AppBar";
-import SideBar from "./components/Template/Sidebar";
 import TopBar from "./components/Template/TopBar";
+import SideBar from "./components/Template/SideBar";
 export default {
   name: "App",
   components: {

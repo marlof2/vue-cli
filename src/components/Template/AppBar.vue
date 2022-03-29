@@ -1,21 +1,25 @@
 <template>
   <v-app-bar dense app color="green">
-    <v-icon size="40" style="margin-left: -7px">mdi-dots-grid</v-icon>
-    <v-toolbar-title style="font-size: 12px; margin-left: 10px"
+    <v-icon color="white" size="40" style="margin-left: -7px"
+      >mdi-dots-grid</v-icon
+    >
+    <v-toolbar-title class="mt-1 text-color-white font"
       >PREFEITURA DE
       <div style="font-size: 17px">CAMAÇARI</div></v-toolbar-title
     >
     <v-spacer></v-spacer>
-    Paulo Campos
+    <v-icon class="mr-10" color="white" size="20" style="margin-left: -7px"
+      >mdi-cog-outline
+    </v-icon>
     <v-avatar class="d-flex text-right mx-auto" size="42">
       <v-icon size="35"> mdi-account-circle </v-icon>
     </v-avatar>
+    <div class="text-color-white">Paulo Campos</div>
     <div class="d-flex align-center"></div>
   </v-app-bar>
 </template>
 
 <script>
-// import { mdiDotsGrid } from "@mdi/js";
 export default {
   data: () => {
     return {};
@@ -23,4 +27,12 @@ export default {
 };
 </script>
 
-<style></style>
+<style scoped>
+.font {
+  font-size: 12px;
+  margin-left: 10px;
+}
+.text-color-white {
+  color: white;
+}
+</style>
