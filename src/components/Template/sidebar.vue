@@ -14,36 +14,48 @@
     >
       <v-tooltip right>
         <template v-slot:activator="{ on, attrs }">
-          <v-icon
-            @click="toggleActive"
-            :color="isActive ? 'blue' : `grey darken-1`"
-            v-on="on"
-            v-bind="attrs"
-            class="d-block text-center mx-auto mt-4"
-            size="25"
-            >mdi-account-circle</v-icon
+          <div
+            :class="
+              isActive == 'perfil'
+                ? 'active-icon-border'
+                : `inactive-icon-border`
+            "
           >
-          <!-- <v-divider class="mx-3 my-5"></v-divider> -->
+            <v-icon
+              @click="toggleActive('perfil')"
+              :color="isActive == 'perfil' ? 'blue' : `grey darken-1`"
+              v-on="on"
+              v-bind="attrs"
+              class="d-block text-center mx-auto mt-4"
+              size="25"
+              >mdi-account-circle</v-icon
+            >
+          </div>
         </template>
         <span>Perfil</span>
       </v-tooltip>
-      <div :class="{ 'active-icon': isActive, 'inactive-icon': !isActive }" />
       <v-tooltip right>
         <template v-slot:activator="{ on, attrs }">
-          <v-icon
-            @click="toggleActive"
-            :color="isActive ? 'blue' : `grey darken-1`"
-            v-on="on"
-            v-bind="attrs"
-            class="d-block text-center mx-auto mt-4"
-            size="25"
-            >mdi-medical-bag</v-icon
+          <div
+            :class="
+              isActive == 'medicos'
+                ? 'active-icon-border'
+                : `inactive-icon-border`
+            "
           >
-          <!-- <v-divider class="mx-3 my-5"></v-divider> -->
+            <v-icon
+              @click="toggleActive('medicos')"
+              :color="isActive == 'medicos' ? 'blue' : `grey darken-1`"
+              v-on="on"
+              v-bind="attrs"
+              class="d-block text-center mx-auto mt-4"
+              size="25"
+              >mdi-medical-bag</v-icon
+            >
+          </div>
         </template>
         <span>Medicos</span>
       </v-tooltip>
-      <div :class="{ 'active-icon': isActive, 'inactive-icon': !isActive }" />
     </v-navigation-drawer>
 
     <v-list class="pl-14" shaped v-if="drawerSecondary">
@@ -76,14 +88,14 @@ export default {
   },
   data() {
     return {
-      isActive: true,
+      isActive: "",
       drawer: true,
       drawerSecondary: true,
     };
   },
   methods: {
-    toggleActive() {
-      this.isActive = !this.isActive;
+    toggleActive(item) {
+      this.isActive = item;
     },
     toggleDrawerSecondary() {
       this.drawerSecondary = !this.drawerSecondary;
@@ -102,6 +114,18 @@ export default {
   height: 0.5px;
   margin: 5px 5px 0;
   background-color: blue;
+}
+
+.active-icon-border {
+  border-left: 2px solid blue;
+  margin-left: 4px;
+  vertical-align: middle;
+}
+
+.inactive-icon-border {
+  border-left: 2px solid transparent;
+  margin-left: 4px;
+  vertical-align: middle;
 }
 
 .inactive-icon {
