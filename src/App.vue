@@ -1,5 +1,5 @@
 <template>
-  <v-app>
+  <!-- <v-app>
     <AppBar />
     <v-main>
       <TopBar />
@@ -13,6 +13,11 @@
           </v-col>
         </v-row>
       </v-container>
+    </v-main>
+  </v-app> -->
+  <v-app>
+    <v-main>
+      <router-view />
     </v-main>
   </v-app>
 </template>

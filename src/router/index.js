@@ -20,6 +20,11 @@ const routes = [
     name: "estados",
     component: () => import("@/modules/estados"),
   },
+  {
+    path: "/login",
+    name: "login",
+    component: () => import("@/modules/login"),
+  },
 ];
 
 const router = new VueRouter({
