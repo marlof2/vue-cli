@@ -58,23 +58,37 @@
       </v-tooltip>
     </v-navigation-drawer>
 
-    <v-list class="pl-14" shaped v-if="drawerSecondary">
-      <v-list-item link>
-        <v-icon>mdi-chevron-right </v-icon>
-        <v-list-item-content>
-          <router-link :to="{ name: 'cidades' }">
-            <v-list-item-title>Cidades</v-list-item-title>
-          </router-link>
-        </v-list-item-content>
-      </v-list-item>
-      <v-list-item link>
-        <v-icon>mdi-chevron-right </v-icon>
-        <v-list-item-content>
-          <router-link :to="{ name: 'estados' }">
-            <v-list-item-title>Estado</v-list-item-title>
-          </router-link>
-        </v-list-item-content>
-      </v-list-item>
+    <v-list shaped class="pl-14" v-if="drawerSecondary">
+      <v-list-group color="black" :value="false">
+        <template v-slot:activator>
+          <v-list-item-title class="font-weight-bold"
+            >Grupo 1</v-list-item-title
+          >
+        </template>
+
+        <v-list-item>
+          <v-icon class="mr-3" size="12">mdi-chevron-right-circle</v-icon>
+          <v-list-item-content>
+            <router-link
+              style="text-decoration: none"
+              :to="{ name: 'cidades' }"
+            >
+              <v-list-item-title class="color-dark">Cidades</v-list-item-title>
+            </router-link>
+          </v-list-item-content>
+        </v-list-item>
+        <v-list-item>
+          <v-icon class="mr-3" size="12">mdi-chevron-right-circle</v-icon>
+          <v-list-item-content>
+            <router-link
+              style="text-decoration: none"
+              :to="{ name: 'estados' }"
+            >
+              <v-list-item-title class="color-dark">Estados</v-list-item-title>
+            </router-link>
+          </v-list-item-content>
+        </v-list-item>
+      </v-list-group>
     </v-list>
   </v-navigation-drawer>
 </template>
@@ -130,5 +144,8 @@ export default {
 
 .inactive-icon {
   height: 0.5px;
+}
+.color-dark {
+  color: black;
 }
 </style>
