@@ -1,47 +1,70 @@
 <template>
-  <div>
-    <h1>Crud de cidades</h1>
-    <SimpleTable :headersProp="headers" :dataProp="data" />
+  <div class="mt-10">
+    <DataTable :headersProp="headers" :dataProp="data" />
   </div>
 </template>
 
 <script>
 import store from "./_store";
-import SimpleTable from "../../components/UI/SimpleTable";
+import DataTable from "../../components/UI/DataTable";
 
 export default {
-  name: "cidadesModule",
+  nome: "cidadesModule",
   beforeCreate() {},
   data() {
     return {
-      headers: [{ name: "id" }, { name: "descricao" }],
+      headers: [
+        {
+          text: "ID",
+          align: "start",
+          sortable: true,
+          value: "id",
+        },
+        { text: "Nome", value: "nome" },
+        { text: "Idade", value: "idade" },
+        { text: "CPF", value: "cpf" },
+        { text: "Nascimento", value: "nascimento" },
+        { text: "Sexo", value: "sexo" },
+      ],
       data: [
         {
-          name: "Salvador",
-          id: 1,
+          id: 262,
+          nome: "Manuel Renato Brito",
+          idade: 36,
+          cpf: "351.439.200-51",
+          nascimento: "01/03/1986",
+          sexo: "Masculino",
         },
         {
-          name: "Irecê",
-          id: 2,
+          id: 344,
+          nome: "Allana Analu Santos",
+          idade: 67,
+          cpf: "917.216.810-27",
+          nascimento: "01/03/1983",
+          sexo: "Feminino",
         },
         {
-          name: "Barreiras",
-          id: 3,
+          id: 259,
+          nome: "Gabriela Heloísa Nunes",
+          idade: 56,
+          cpf: "234.306.770-84",
+          nascimento: "11/01/1966",
+          sexo: "Feminino",
         },
         {
-          name: "Mucugê",
-          id: 4,
-        },
-        {
-          name: "Feira de Santana",
-          id: 5,
+          id: 375,
+          nome: "Iago Fábio Gabriel Lima",
+          idade: 78,
+          cpf: "895.430.860-01",
+          nascimento: "02/03/1944",
+          sexo: "Masculino",
         },
       ],
     };
   },
   beforeMount() {},
   components: {
-    SimpleTable,
+    DataTable,
   },
   computed: {},
   methods: {},
