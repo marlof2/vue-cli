@@ -113,6 +113,7 @@ export default {
     },
     toggleDrawerSecondary() {
       this.drawerSecondary = !this.drawerSecondary;
+      this.$emit("changeColsSideBar", this.drawerSecondary);
     },
   },
 };
