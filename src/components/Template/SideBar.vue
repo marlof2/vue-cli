@@ -12,6 +12,7 @@
       color="grey lighten-3"
       mini-variant
     >
+      <v-divider></v-divider>
       <v-tooltip right>
         <template v-slot:activator="{ on, attrs }">
           <div

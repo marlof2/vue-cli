@@ -1,17 +1,9 @@
 <template>
-  <v-app-bar
-    color="#eeeeee"
-    flat
-    height="45"
-    style="
-      margin-left: -2px;
-      border-bottom: 1px #d1d1d1 solid;
-      border-top: 1px #d1d1d1 solid;
-    "
-  >
-    <v-icon color="gray" size="40" style="margin-left: -7px"
+  <v-app-bar class="classAppBar" color="#eeeeee" flat height="45">
+    <v-icon class="icon" color="gray" size="40"
       >mdi-checkbox-blank-circle
     </v-icon>
+    <v-divider class="divider" vertical></v-divider>
     <v-responsive>
       <v-row class="mt-2 mb-2 ml-1">
         <v-app-bar-nav-icon
@@ -31,4 +23,17 @@
   </v-app-bar>
 </template>
 
-<style></style>
+<style scoped>
+.classAppBar {
+  margin-left: -2px;
+  border-bottom: 1px #d1d1d1 solid;
+  border-top: 1px #d1d1d1 solid;
+}
+
+.icon {
+  margin-left: -2px;
+}
+.divider {
+  margin-left: 3px;
+}
+</style>

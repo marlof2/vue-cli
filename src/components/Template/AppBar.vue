@@ -1,8 +1,6 @@
 <template>
   <v-app-bar dense app color="green">
-    <v-icon color="white" size="40" style="margin-left: -7px"
-      >mdi-dots-grid</v-icon
-    >
+    <v-icon color="white" size="40" class="margin-left">mdi-dots-grid</v-icon>
     <router-link style="text-decoration: none" :to="{ name: 'home' }">
       <v-toolbar-title class="mt-1 text-color-white font"
         >PREFEITURA DE
@@ -64,5 +62,8 @@ export default {
 }
 .text-color-white {
   color: white;
+}
+.margin-left {
+  margin-left: -4px;
 }
 </style>

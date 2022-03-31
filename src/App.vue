@@ -8,7 +8,7 @@
           <v-col :cols="sideCols">
             <SideBar @changeColsSideBar="changeColsSideBar" />
           </v-col>
-          <v-col :cols="12 - sideCols">
+          <v-col class="scrollable" :cols="12 - sideCols">
             <router-view />
           </v-col>
         </v-row>
@@ -18,11 +18,6 @@
       <router-view />
     </v-main>
   </v-app>
-  <!-- <v-app>
-    <v-main>
-      <router-view />
-    </v-main>
-  </v-app>-->
 </template>
 
 <script>
@@ -48,3 +43,15 @@ export default {
   },
 };
 </script>
+
+<style>
+.scrollable {
+  overflow-y: scroll;
+  max-height: 475px;
+  min-height: 475px;
+}
+html,
+body {
+  overflow: hidden;
+}
+</style>

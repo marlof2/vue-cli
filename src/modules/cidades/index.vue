@@ -1,6 +1,11 @@
 <template>
   <div class="mt-10">
     <DataTable :headersProp="headers" :dataProp="data" />
+    <DataTable :headersProp="headers" :dataProp="data" />
+    <DataTable :headersProp="headers" :dataProp="data" />
+    <DataTable :headersProp="headers" :dataProp="data" />
+    <DataTable :headersProp="headers" :dataProp="data" />
+    <DataTable :headersProp="headers" :dataProp="data" />
   </div>
 </template>
 
@@ -71,5 +76,4 @@ export default {
   watch: {},
 };
 </script>
-<style lang="scss" scoped>
-</style>
+<style lang="scss" scoped></style>
