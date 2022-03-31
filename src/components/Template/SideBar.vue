@@ -66,7 +66,11 @@
           >
         </template>
 
-        <v-list-item>
+        <v-list-item
+          :class="
+            $route.name == 'cidades' ? `active-submenu` : `inactive-submenu`
+          "
+        >
           <v-icon class="mr-3" size="12">mdi-chevron-right-circle</v-icon>
           <v-list-item-content>
             <router-link
@@ -77,7 +81,9 @@
             </router-link>
           </v-list-item-content>
         </v-list-item>
-        <v-list-item>
+        <v-list-item  :class="
+            $route.name == 'estados' ? `active-submenu` : `inactive-submenu`
+          ">
           <v-icon class="mr-3" size="12">mdi-chevron-right-circle</v-icon>
           <v-list-item-content>
             <router-link
@@ -96,6 +102,7 @@
 <script>
 export default {
   async mounted() {
+    console.log(this.$route);
     this.$root.$on("toggleDrawerSecondary", () => {
       this.toggleDrawerSecondary();
     });
@@ -148,5 +155,14 @@ export default {
 }
 .color-dark {
   color: black;
+}
+.active-submenu {
+  background-color: #388e3c;
+}
+.active-submenu .v-list-item__title {
+  color: #fff;
+}
+.active-submenu .v-icon {
+  color: #fff;
 }
 </style>
