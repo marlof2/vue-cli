@@ -62,7 +62,7 @@
       <v-list-group color="black" :value="false">
         <template v-slot:activator>
           <v-list-item-title class="font-weight-bold"
-            >Grupo 1</v-list-item-title
+            >Cadastro</v-list-item-title
           >
         </template>
 
@@ -77,11 +77,11 @@
               style="text-decoration: none"
               :to="{ name: 'cidades' }"
             >
-              <v-list-item-title class="color-dark">Cidades</v-list-item-title>
+              <v-list-item-title class="color-dark">Paciente</v-list-item-title>
             </router-link>
           </v-list-item-content>
         </v-list-item>
-        <v-list-item  :class="
+        <!-- <v-list-item  :class="
             $route.name == 'estados' ? `active-submenu` : `inactive-submenu`
           ">
           <v-icon class="mr-3" size="12">mdi-chevron-right-circle</v-icon>
@@ -93,7 +93,7 @@
               <v-list-item-title class="color-dark">Estados</v-list-item-title>
             </router-link>
           </v-list-item-content>
-        </v-list-item>
+        </v-list-item> -->
       </v-list-group>
     </v-list>
   </v-navigation-drawer>
