@@ -7,7 +7,7 @@
             <v-card rounded="0" class="elevation-6 pa-6 mx-16">
               <v-img src="../../assets/logo-mini.png" class="logo"></v-img>
               <br />
-              <h2>Entrar</h2>
+              <h2>{{strings.login}}</h2>
               <v-form>
                 <span v-if="!isPassword">
                   <v-text-field name="login" label="E-mail" type="text"></v-text-field>
@@ -17,7 +17,7 @@
                   </v-card-text>
                 </span>
                 <span v-if="isPassword">
-                  <v-text-field name="password" label="Senha" type="password"></v-text-field>
+                  <v-text-field name="password" :label="strings.lbl_password" type="password"></v-text-field>
                   <v-card-text class="pa-0">
                     <a href="#">Esqueceu a senha?</a>
                   </v-card-text>
@@ -25,12 +25,19 @@
               </v-form>
               <v-card-actions>
                 <v-spacer></v-spacer>
-                <v-btn dark class="back-btn" v-if="isPassword" @click="showPassword">Voltar</v-btn>
-                <v-btn
+                <FormButton
                   dark
-                  class="submit-btn"
+                  :background="colors.btn_back"
+                  :label="strings.btn_back"
+                  @click="showPassword"
+                  v-if="isPassword"
+                />
+                <FormButton
+                  dark
+                  :background="colors.login"
+                  :label="!isPassword ? strings.btn_next : strings.login"
                   @click="!isPassword ? showPassword() : null"
-                >{{ !isPassword ? 'Avançar' : 'Entrar' }}</v-btn>
+                />
               </v-card-actions>
             </v-card>
           </v-flex>
@@ -50,17 +57,28 @@
 
 <script>
 import store from "./_store";
+import FormButton from '../../components/UI/FormButton.vue';
+import STRINGS from '../../utils/strings'
+import COLORS from '../../utils/colors'
 
 export default {
   name: "loginModule",
   beforeCreate() { },
+  created() {
+    this.strings = STRINGS;
+    this.colors = COLORS;
+  },
   data() {
     return {
       isPassword: false,
+      strings: null,
+      colors: null,
     };
   },
   beforeMount() { },
-  components: {},
+  components: {
+    FormButton,
+  },
   computed: {},
   methods: {
     showPassword() {
@@ -84,13 +102,6 @@ export default {
   object-fit: contain;
 }
 
-.back-btn {
-  background-color: #616161 !important;
-}
-
-.submit-btn {
-  background-color: #4caf50 !important;
-}
 .card-color {
   background-color: rgba(31, 31, 31, 0.7) !important;
 }
